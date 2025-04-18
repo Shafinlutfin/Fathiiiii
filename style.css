@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to top, #fdf6f0, #ffe6f9);
+  overflow-x: hidden;
+  position: relative;
+  color: #4d2c2c;
+}
+
+.page {
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8em;
+  color: #c94d70;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #8c4a5f;
+  margin-bottom: 30px;
+}
+
+.note-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.note {
+  background: #fffdf9;
+  border: 2px dashed #e0c0ba;
+  padding: 20px;
+  width: 180px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3em;
+  cursor: pointer;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(200, 130, 150, 0.2);
+  transition: all 0.3s ease;
+}
+
+.note:hover {
+  transform: translateY(-5px);
+  background: #fff6f6;
+}
+
+/* Popups */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(220, 170, 160, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.popup-content {
+  background-color: #fffdfb;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(186, 119, 110, 0.3);
+  animation: fadeInUp 0.5s ease;
+  position: relative;
+}
+
+.popup-content h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #b84d57;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  color: #5a2d2d;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 26px;
+  color: #994444;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Starry Animation */
+.stars, .stars2, .stars3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stars {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/1/18/Five-pointed_star.svg');
+  animation: moveStars 200s linear infinite;
+  opacity: 0.2;
+}
+
+.stars2 {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/1/18/Five-pointed_star.svg');
+  animation: moveStars 300s linear infinite;
+  opacity: 0.1;
+}
+
+.stars3 {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/1/18/Five-pointed_star.svg');
+  animation: moveStars 400s linear infinite;
+  opacity: 0.05;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 10000px; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .note-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .note {
+    width: 85%;
+  }
+
+  h1 {
+    font-size: 2.3em;
+  }
+
+  .popup-content {
+    margin-top: 30%;
+  }
+}
+
+audio {
+  display: none;
+}
